@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: "core-api-container"
+    ports:
+      - "8000:15400"
+    volumes:
+      - ./app/:/app
+  mysql:
+    image: mysql:5.7.5
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - /database:/var/lib/mysql
